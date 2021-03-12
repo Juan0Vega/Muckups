@@ -1,0 +1,95 @@
+@font-face {
+    font-family: opensans;
+    src: url(./fuentes/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: opensans-extra;
+    src: url(./fuentes/OpenSans-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: opensans-semi;
+    src: url(./fuentes/OpenSans-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: opensans-light;
+    src: url(./fuentes/OpenSans-Light.ttf);
+}
+
+body {
+    background: #939597;
+}
+
+.container {
+    width: 692px;
+    height: 413px;
+    margin: 0 auto;
+    background-image: url("Recurso\ 3.png");
+}
+
+.nav {
+    height: 50px;
+    width: 100%;
+    position: relative;
+    padding-top: 30px;
+}
+
+.nav>.nav-links {
+    display: inline;
+    float: right;
+    font-size: 15px;
+}
+
+.nav>.nav-links>a {
+    text-decoration: none;
+    padding: 30px 8px 8px 8px;
+    color: black;
+    font-family: opensans;
+    font-style: unset;
+    padding-right: 30px;
+}
+
+.cuerpo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-family: opensans-extra;
+    font-size: 21px;
+}
+
+.cuerpo>h1 {
+    margin-top: 60px;
+}
+
+.cuerpo>h3 {
+    font-family: opensans;
+    margin-top: -30px;
+}
+
+.nav>.logo {
+    display: inline;
+    float: left;
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    font-family: opensans-semi;
+    padding-left: 30px;
+}
+
+#color {
+    color: white;
+    margin-left: -30px;
+}
+
+#boton {
+    border-radius: 20px;
+    border-style: hidden;
+    height: 35px;
+    width: 130px;
+    font-size: 12px;
+    font-family: opensans-light;
+}

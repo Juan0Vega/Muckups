@@ -1,49 +1,49 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <script src="https://kit.fontawesome.com/d7161da71d.js" crossorigin="anonymous"></script>
-  <meta charset="utf-8">
-  <title>Template</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="Styles.css" rel="stylesheet">
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-</style>
-</head>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, WebVR! • A-Frame</title>
+    <meta name="description" content="Hello, WebVR! • A-Frame">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <script>
+    AFRAME.registerComponent('mi_componente', {  
+  schema: {
+    interval: { type: 'number', default: 5000 },
+    defaultColor: { type: 'color', default: '#fff' }
+  },
+  
+  init: function() {
+    var el = this.el //toma el elemento del tag
+    var interval = this.data.interval //variable de intervalo, toma lo que venga de la propiedad
+    
+    var colors = ["yellow", "blue", "red", "green", "orange"] //paleta de colores en rgb, hex, obj
+    
+    var i = 0
+     
+    el.setAttribute('color', colors[0]) //asignación del color
+    
+    this.colorInterval = setInterval(function(){ //cada vez que ocurra un intervalo ejecuta la funcion
+      i = (i + 1) % colors.length //ciclo para recorrer el array de colores y volver al inicio
+      el.setAttribute('color', colors[i])
+    }, interval) 
+  },
+  
+  update: function() {},
+  //cuando se borra o se deja de utilizar
+  remove: function() {
+    var el = this.el
+    var defaultColor = this.data.defaultColor
+    
+    clearInterval(this.colorInterval)
+    el.setAttribute('color', defaultColor)
+  }
+})
+</script>
   <body>
-    <div class="nav">
-        <input type="checkbox" id="nav-check">
-        <div class="nav-header">
-          <div class="nav-title nav-btn">
-            <i class="fas fa-angle-up size"></i>
-            <a target= "_blank">YOUR LOGO</a>
-          </div>
-        </div>
-        <div class="nav-btn">
-          <label for="nav-check">
-            <span></span>
-            <span></span>
-            <span></span>
-          </label>
-        </div>
-        
-        <div class="nav-links">
-          <a href="" target="_blank">Home</a>
-          <a href="/Third Page/Template.html" target="_blank">About Us</a>
-          <a href="" target="_blank">Portfolio</a>
-          <a href="" target="_blank">Contact Us</a>
-        </div>
-      </div>
-      <div class="label">
-        <h2>Let´s be fun !</h2>
-      </div>
-      <div class="demo">
-          <form class="form-search">
-            <div class="input-group">
-              <input class="form-control form-text inputradius"  size="38" type="text" />
-              <span class="input-group-btn"><button class="btn searchbutton">Search<i class="search"></i>&nbsp;</i></button></span>
-            </div>
-          </form>
-        </div>
+    <a-scene background="color: #ECECEC">
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow   mi_componente="defaultColor:#000: interval:100"></a-box>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#7BC8A4" shadow></a-plane>
+    </a-scene>
   </body>
-  </html> 
+</html>
